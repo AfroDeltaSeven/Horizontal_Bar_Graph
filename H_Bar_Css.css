@@ -1,0 +1,42 @@
+#graph-cntnr {
+	height: auto;
+	width: 500px;
+}
+#lgnd-cntnr {
+	padding: 10px;
+}
+#demoChart {
+	width: 100%;
+	height: 100%;
+	font-weight: bold;
+	font-size: 25px;
+	overflow: hidden;
+	padding: 20px 0px 0px 0px;
+}
+#textOptions {
+	font-size: 16px;
+	color: #000;
+}
+.side-by-side {
+	height: 30px;
+	float: left;
+}
+.legend { 
+	list-style: none;
+	font-weight: bold;
+}
+.legend li { 
+	float: left;
+	margin-right: 10px; 
+}
+.legend span {
+	border: 1px solid #ccc; 
+	float: left; 
+	width: 12px; 
+	height: 12px; 
+	margin: 2px; 
+}
+.legend a {
+	font-size: 12pt;
+	color: #000;
+}
