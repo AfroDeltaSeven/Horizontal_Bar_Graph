@@ -1,0 +1,88 @@
+<html>
+	<head>
+		<title>
+			Horizontal Stacking Bar Graph
+		</title>
+		<link rel="stylesheet" type="text/css" href="\\esocoeentap100.washdc.state.sbu\irmuser$\BrooksCM\H_Bar_Graph\H_Bar_Css.css">
+		<script type="text/javascript">
+			function barGraph() {
+				var totalCount = 0; //tallies the total values of whatever is being counted
+				var statusCount = [ //array of objects that holds the data to populate the graph
+					{
+						key: "statusOne",
+						label: "Status One",
+						value: 2,
+						color: "#f49242"
+					},
+					{
+						key: "statusTwo",
+						label: "Status Two",
+						value: 3,
+						color: "#f4ee41"
+					},
+					{
+						key: "statusThree",
+						label: "Status Three",
+						value: 4,
+						color: "#8ef441"
+					},
+					{
+						key: "statusFour",
+						label: "Status Four",
+						value: 1,
+						color: "#41f4e5"
+					},
+					{
+						key: "statusFive",
+						label: "Status Five",
+						value: 1,
+						color: "#a641f4"
+					}
+				];
+				
+				var arrayLength = statusCount.length; //gets the length of the array containing the data
+				
+				for (var index = 0; index <  arrayLength; index++) {
+					totalCount += statusCount[index].value; //increments the total values
+				}
+				
+				for (var index = 0; index <  arrayLength; index++) { //loops through the array and shows all elements of the array
+					if (statusCount[index].value !== 0) { //with a value greater than zero
+						var liElement= document.createElement('li');
+						var hyperlink = document.createElement('a');
+						hyperlink.id = statusCount[index].label + "-link";
+						hyperlink.title = statusCount[index].label;
+						hyperlink.innerHTML = statusCount[index].label;
+						hyperlink.href = "example.com";
+						liElement.id = statusCount[index].label + "-block";
+						
+						var spanElement = document.createElement('span');
+						spanElement.id = statusCount[index].label + "-span";
+						spanElement.style.backgroundColor = statusCount[index].color;
+						
+						document.getElementById("demoGraphLgnd").appendChild(liElement);	
+						document.getElementById(liElement.id).appendChild(spanElement);
+						document.getElementById(liElement.id).appendChild(hyperlink);				
+					
+						var divElement = document.createElement('div');
+						divElement.id = 'block-' + statusCount[index].label;
+						divElement.className = 'side-by-side';
+						divElement.style.width = ((statusCount[index].value/totalCount)*100) + "%"; //sets the width of the section of the graph 
+						divElement.style.backgroundColor = statusCount[index].color;
+						document.getElementById("demoChart").appendChild(divElement);
+						document.getElementById(divElement.id).innerHTML = statusCount[index].value;						
+					}	
+				}				
+			}
+		</script>
+	</head>
+	<body onload="barGraph()">
+		<div id="textOptions"><strong>DEMO GRAPH</strong></div>
+		<div id="graph-cntnr">
+			<div id="lgnd-cntnr">						
+				<ul id="demoGraphLgnd" class="legend"></ul>
+			</div>
+			<div id="demoChart"></div>		
+		</div>	
+	</body>
+</html>
